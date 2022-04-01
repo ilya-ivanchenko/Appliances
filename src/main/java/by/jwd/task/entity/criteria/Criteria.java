@@ -39,10 +39,10 @@ public class Criteria {
 
 	public boolean compareWithCriteriaInEnumClasses() {
 		int counter = 0;
-		for (Class<?> enumClass : SearchCriteria.class.getClasses()) { 					//for each Enum
-			if (enumClass.getSimpleName().equals(getGroupSearchName())) { 					//compare name of Enum with current (Oven)
-				for (String s : criteria.keySet()) { 					//for each key(CAPACITY, etc...)
-					for (Object enumConstant : enumClass.getEnumConstants()) { 					//get constants of each Enum
+		for (Class<?> enumClass : SearchCriteria.class.getClasses()) {													//for each Enum
+			if (enumClass.getSimpleName().equals(getGroupSearchName())) { 												//compare name of Enum with current (Oven)
+				for (String s : criteria.keySet()) {																	//for each key(CAPACITY, etc...)
+					for (Object enumConstant : enumClass.getEnumConstants()) {											//get constants of each Enum
 						if (s.equals(enumConstant.toString()) && (++counter == numberOfCriteria())) { 					//if key equals to constant(CAPACITY == CAPACITY) && 1(quantity elements of Map)==1
 							return true;
 						}
